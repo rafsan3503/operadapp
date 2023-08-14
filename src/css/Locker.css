@@ -1,0 +1,81 @@
+.lockerOutputDiv{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.lockerHeaderText{
+    color:white;
+}
+.headerSpan{
+    margin-right: 1px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.headerPairText{
+    font-size: small;
+    color: rgba(255, 255, 255, 0.491);
+}
+.lockerMiddleDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.liquidityPercent{
+    color:white;
+    font-size: 3rem;
+}
+.lpTokensDisplayDiv{
+    display: flex;
+    width: 50%;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.centerPiece{
+    display: flex;
+    width: 33%;
+    justify-content: center;
+    align-items: center;
+}
+.green {
+    color:#61d45f;
+}
+.linksDiv{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+    width: 50%;
+    flex-wrap: wrap;
+}
+.lockerFooter{
+    margin-top: 55px;
+}
+.centered{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+.white{
+    color:white;
+}
+.docsLink{
+    text-decoration: underline;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.docsLink:hover{
+    color:rgba(176, 176, 255, 0.642);
+}
+.voteButtonDiv{
+    display: flex;
+
+}
