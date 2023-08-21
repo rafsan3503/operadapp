@@ -227,8 +227,6 @@ const Main = () => {
       const operaTokenContract = new web3.eth.Contract(OperaTokenABI,addresses["operaToken"])
       const stakingContract = new web3.eth.Contract(STAKINGABIV2,addresses["stakingContractV2"])
             const allowanced = await operaTokenContract.methods.allowance(provider.provider.selectedAddress,addresses["stakingContractV2"]).call()
-            console.log(allowanced)
-            console.log(amount)
             if(allowanced >= amount){
               console.log("Enough allowance")
               await stakingContract.methods.stake(String(amount)).send({value:0,from:window.web3.currentProvider.selectedAddress})
@@ -363,6 +361,20 @@ const Main = () => {
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Launch Token
+                  <small className="text-[#59FF56] text-[10px] ml-2">
+                    NEW!
+                  </small>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="manager"
+                  className="text-white text-lg leading-6 tracking-[0.1em]"
+                >
+                  Manager{" "}
+                  <small className="text-[#59FF56] text-[10px] ml-2">
+                    NEW!
+                  </small>
                 </Link>
               </li>
               <li>
@@ -371,20 +383,19 @@ const Main = () => {
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Governance{" "}
-                  <small className="text-[#59FF56] text-[10px] ml-2">
-                    NEW!
-                  </small>
+
                 </Link>
               </li>
+
               <li>
                 <Link
                   to="locker"
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Locker{" "}
-                  <small className="text-[#59FF56] text-[10px] ml-2">
+                  {/* <small className="text-[#59FF56] text-[10px] ml-2">
                     NEW!
-                  </small>
+                  </small> */}
                 </Link>
               </li>
                 {/* <li>
@@ -462,6 +473,20 @@ const Main = () => {
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Launch Token
+                  <small className="text-[#59FF56] text-[10px] ml-2">
+                    NEW!
+                  </small>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="manager"
+                  className="text-white text-lg leading-6 tracking-[0.1em]"
+                >
+                  Manager{" "}
+                  <small className="text-[#59FF56] text-[10px] ml-2">
+                    NEW!
+                  </small>
                 </Link>
               </li>
               <li>
@@ -470,9 +495,9 @@ const Main = () => {
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Governance{" "}
-                  <small className="text-[#59FF56] text-[10px] ml-2">
+                  {/* <small className="text-[#59FF56] text-[10px] ml-2">
                     NEW!
-                  </small>
+                  </small> */}
                 </Link>
               </li>
               <li>
@@ -481,9 +506,9 @@ const Main = () => {
                   className="text-white text-lg leading-6 tracking-[0.1em]"
                 >
                   Locker{" "}
-                  <small className="text-[#59FF56] text-[10px] ml-2">
+                  {/* <small className="text-[#59FF56] text-[10px] ml-2">
                     NEW!
-                  </small>
+                  </small> */}
                 </Link>
               </li>
               {/* <li>

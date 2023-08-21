@@ -1,0 +1,44 @@
+.baseCentered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modalHeader{
+    color: white;
+    font-size: x-large;
+    margin-bottom: 15px;
+  }
+  .modalText {
+    color: grey;
+    font-size: medium;
+    text-align: center;
+  }
+  .launchButtons{
+    color: black;
+    background-color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: large;
+    margin-top: 15px;
+  }
+  .launchButtons:hover {
+    background-color: #86ff84;
+  }
+  .red {
+    color:rgb(255, 22, 22);
+  }
+  .tokenSelection{
+    cursor: pointer;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 20px;
+    padding:10px 3px;
+    text-align: center;
+  }
+  .tokenSelection:hover{
+    outline: white solid 1px;
+  }
+  .selectedToken { 
+    outline:  #86ff84 solid 1px;
+  }

@@ -5,6 +5,7 @@ import Governance from "./pages/Governance";
 import LaunchToken from "./pages/LaunchToken";
 import Stake from "./pages/Stake";
 import Locker from "./pages/Locker";
+import Manager from "./pages/Manager";
 
 function App() {
   const router = createBrowserRouter([
@@ -16,6 +17,7 @@ function App() {
         { path: "/stake", element: <Stake /> },
         { path: "/launchToken", element: <LaunchToken /> },
         { path: "/locker", element: <Locker /> },
+        { path: "/manager", element: <Manager /> },
         {
           path: "/governance",
           element: <Governance />,

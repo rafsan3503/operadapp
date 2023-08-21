@@ -38,12 +38,7 @@ const Locker = () => {
         let wethInPair = await WETHContract.methods.balanceOf(tokenPair).call()
         let pairbalanceOfLocker = await pairTokenContract.methods.balanceOf("0x033437CB8D213FceAb933CF32458E6C8B5f2bb74").call()
         let tokenbalanceOfPair = await deployedTokenContract.methods.balanceOf(tokenPair).call()
-        console.log("name " + tokenName)
-        console.log("pair " + tokenPair)
-        console.log("pairTotalSupply " + pairTotalSupply)
-        console.log("pair tokens in locker " + pairbalanceOfLocker)
-        console.log("Tokens in lp " + tokenbalanceOfPair)
-        console.log("WETH in lp " + wethInPair)
+
         setTokenData({
           "tokenAddress":addressInput,
           "name":tokenName,
@@ -114,7 +109,7 @@ const Locker = () => {
         <div className="lockerFooter">
         <p className="headerPairText centered">Please be aware that this token's liquidity has been borrowed from our DAO, and is 100% safe.</p>
         <p className="headerPairText centered">More liquidity tokens are minted as people add liquidity to the pool.</p>
-        <p className="headerPairText centered">OPERA DAO owners the liquidity to this pair and can vote to remove it only when the token is deemed 'unresponsive'.</p>
+        <p className="headerPairText centered">OPERA DAO owns the liquidity to this pair and can vote to remove it only when the token is deemed 'unresponsive'.</p>
         <p className="headerPairText white centered">Please visit <a className="docsLink" target="blank" href={`https://docs.operaprotocol.com`}> docs.operaprotocol.com </a> to learn more about this indefinite liquidity lock.</p>
         
         </div>
