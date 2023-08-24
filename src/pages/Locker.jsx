@@ -36,7 +36,7 @@ const Locker = () => {
         const pairTokenContract = new web3.eth.Contract(PAIRABI,tokenPair)
         let pairTotalSupply = await pairTokenContract.methods.totalSupply().call()
         let wethInPair = await WETHContract.methods.balanceOf(tokenPair).call()
-        let pairbalanceOfLocker = await pairTokenContract.methods.balanceOf("0x033437CB8D213FceAb933CF32458E6C8B5f2bb74").call()
+        let pairbalanceOfLocker = await pairTokenContract.methods.balanceOf("0xa7A7F6cf9a39294fe350d9EDa4D8017729546250").call()
         let tokenbalanceOfPair = await deployedTokenContract.methods.balanceOf(tokenPair).call()
 
         setTokenData({

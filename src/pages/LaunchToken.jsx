@@ -198,21 +198,27 @@ const LaunchToken = () => {
       let intList = [tokenInputs["supply"],tokenInputs["maxWallet"],tokenInputs["swap"],tokenInputs["marketingBuyTax"],tokenInputs["marketingSellTax"],tokenInputs["devBuyTax"],tokenInputs["devSellTax"],tokenInputs["liqBuyTax"],tokenInputs["liqSellTax"]]
           if(borrowedEth === 0){
             if(selectedTokenType === 3){
-              const factoryContract = new web3.eth.Contract(NoTaxDeployerABI,addresses["notaxDeployer"])
-              let fee = 4 * 10**16
-              let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["supply"],tokenInputs["maxWallet"]]).send({value:fee,from:window.web3.currentProvider.selectedAddress})
+              const factoryContract = new web3.eth.Contract(FactoryABI,addresses["factory"])
+              let fee = 5 * 10**16
+              intList[9] = 0
+              intList[10] = 0
+              let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["supply"],tokenInputs["maxWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
               setTokenDeployed(response.events.tokenDeployed.returnValues.token)
 
             } else {
-              const factoryContract = new web3.eth.Contract(TaxDeployerABI,addresses["taxDeployer"])
-              let fee = 4 * 10**16
-              let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["devWallet"],tokenInputs["marketingWallet"]],intList).send({value:fee,from:window.web3.currentProvider.selectedAddress})
+              const factoryContract = new web3.eth.Contract(FactoryABI,addresses["factory"])
+              let fee = 5 * 10**16
+              intList[9] = 1
+              intList[10] = 0
+              let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["devWallet"],tokenInputs["marketingWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
               setTokenDeployed(response.events.tokenDeployed.returnValues.token)
             }
 
           } else {
             const factoryContract = new web3.eth.Contract(FactoryABI,addresses["factory"])
             let fee = borrowedEth * 10**17
+            intList[9] = 1
+            intList[10] = 1
             let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["devWallet"],tokenInputs["marketingWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
             setTokenDeployed(response.events.tokenDeployed.returnValues.token)
           }
