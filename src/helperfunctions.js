@@ -9,7 +9,7 @@ export const   trimAddress = (address) => {
 }
 export const addresses = {
     "lendingpool":"0xB934829956A1eA855C25965B35A123b0ec1697ac",
-    "factory":"0x09FC83Be86dc771169eD8c92e05045Cc6491dc09",
+    "factory":"0xc48Db2Eb8E31675Bb3A1E1A7a35fd7E4717d28DC",
     "rewardContract":"0x1fF1e20052A9e4bC180305a773474eDed0c5844e",
     "operaToken":"0x3bd8268791de798d4ed5d424d49412cf42b8ec3a",
     "stakingContract":"0x670E71219219a6625a3B0E68D0D8CdBD9d065A49",

@@ -94,6 +94,7 @@ const Main = () => {
         const userData = await fetch(`https://lendertest.herokuapp.com/maindata/${provider.provider.selectedAddress}`)
         // const userData = await fetch(`http://127.0.0.1:8000/maindata/${provider.provider.selectedAddress}`)
         const userJson = await userData.json()
+        console.log(userJson)
         // console.log(userJson.tempVoteList)
         // console.log(userJson.deployedTokens)
         setUserData(userJson)

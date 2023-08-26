@@ -182,6 +182,8 @@ const Governance = () => {
             </thead>
             <tbody >
             {userData.deployedTokens && userData.deployedTokens.map((_,index)=>{
+              console.log(_)
+              console.log(userData.tempVoteList)
               const codeOfToken = getState(userData.tempVoteList[_.tokenCount].blocktime,userData.tempVoteList[_.tokenCount].lobbyId,userData.tempVoteList[_.tokenCount].state )
             return (              <tr key={index} className="bg-black ">
             <td className="text-xl tracking-[0.075em] py-[18px] pl-[18px]  rounded-tl-[6px] rounded-bl-[6px] w-[35%]">
