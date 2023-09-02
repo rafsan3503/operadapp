@@ -182,9 +182,14 @@ const Governance = () => {
             </thead>
             <tbody >
             {userData.deployedTokens && userData.deployedTokens.map((_,index)=>{
-              console.log(_)
-              console.log(userData.tempVoteList)
-              const codeOfToken = getState(userData.tempVoteList[_.tokenCount].blocktime,userData.tempVoteList[_.tokenCount].lobbyId,userData.tempVoteList[_.tokenCount].state )
+
+              let codeOfToken = 99
+              try{
+                codeOfToken = getState(userData.tempVoteList[_.tokenCount].blocktime,userData.tempVoteList[_.tokenCount].lobbyId,userData.tempVoteList[_.tokenCount].state )
+              }catch {
+                codeOfToken = 99
+              }
+              
             return (              <tr key={index} className="bg-black ">
             <td className="text-xl tracking-[0.075em] py-[18px] pl-[18px]  rounded-tl-[6px] rounded-bl-[6px] w-[35%]">
               {_.name}
@@ -227,6 +232,10 @@ const Governance = () => {
               {codeOfToken === 7 &&               
               <button className="pt-2 pb-2 bg-transparent border rounded-[6px] w-[119px] text-[14px] font-semibold tracking-[0.185em] ">
                 LP Cooldown
+              </button>}
+              {codeOfToken === 99 &&               
+              <button className="pt-2 pb-2 bg-transparent border rounded-[6px] w-[119px] text-[14px] font-semibold tracking-[0.185em] ">
+                Non Borrow
               </button>}
             </td>
             {/* <td className=" w-[16.6%] pl-10 text-[12px] font-semibold tracking-[0.185em] pr-[18px] rounded-tr-[6px] rounded-br-[6px]">

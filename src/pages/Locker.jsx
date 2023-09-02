@@ -99,7 +99,8 @@ const Locker = () => {
          <p  className="centerPiece "> + </p> <p  className="green centerPiece">{(tokenData["tokensInLP"]/10**9).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} {tokenData["name"]}</p>
         </div>
         {/* <p className="headerPairText">UNLOCK DATE</p> */}
-        <img src={infinite} className="mr-[5px]" alt="" />
+        {tokenData["lockedPairTokens"] > 0 &&
+        <img src={infinite} className="mr-[5px]" alt="" />}
         <div className="linksDiv">
 
           <a target="blank" href={`https://etherscan.io/address/${tokenData["pair"]}`}>ETHERSCAN</a>

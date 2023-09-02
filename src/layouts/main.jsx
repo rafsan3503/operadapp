@@ -50,6 +50,23 @@ const Main = () => {
 
     return () => clearInterval(loadIntervalId)
   },[timerState])
+  useEffect( ()=>{
+    async function load(){
+      try{
+        const userData = await fetch(`https://lendertest.herokuapp.com/maindata/x`)
+        const userJson = await userData.json()
+        // console.log(userJson)
+        // console.log(userJson.tempVoteList)
+        // console.log(userJson.deployedTokens)
+        setUserData(userJson)
+      } catch {
+        console.log("cannot do initial load")
+      }
+    }
+    load()
+
+
+  },[])
 
   useEffect( ()=>{
     if(!provider) return
@@ -94,7 +111,7 @@ const Main = () => {
         const userData = await fetch(`https://lendertest.herokuapp.com/maindata/${provider.provider.selectedAddress}`)
         // const userData = await fetch(`http://127.0.0.1:8000/maindata/${provider.provider.selectedAddress}`)
         const userJson = await userData.json()
-        console.log(userJson)
+        // console.log(userJson)
         // console.log(userJson.tempVoteList)
         // console.log(userJson.deployedTokens)
         setUserData(userJson)
@@ -135,7 +152,10 @@ const Main = () => {
       }
   }
   async function lendEth(inputAmount){
-
+    if(inputAmount === 0){
+      setTxPending(false)
+      return
+    }
     try{
       let web3;
       if(window.ethereum){

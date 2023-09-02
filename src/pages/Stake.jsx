@@ -147,9 +147,9 @@ const Stake = () => {
           </p>
           <p className="text-[22px] leading-[30px]">OPERA</p>
           <p className="text-[#AAAAAA] text-[10px] mb-7">ETHEREUM</p>
-          <p className="text-[22px] leading-[30px] mb-5">CURRENT APY {parseFloat((1000000000 / (totalStaked/10**9)) * 120).toFixed(1)} %</p>
+          {/* <p className="text-[22px] leading-[30px] mb-5">CURRENT APY {parseFloat((1000000000 / (totalStaked/10**9)) * 120).toFixed(1)} %</p> */}
           {/* <p className="text-[#AAAAAA] text-[8px] mb-14">ETHEREUM NETWORK</p> */}
-          <div className="relative ">
+          {/* <div className="relative ">
             <img
               className="absolute w-[19px] h-[19px] mt-[19px] ml-[10px]"
               src={ethereum}
@@ -165,7 +165,7 @@ const Stake = () => {
               className="border border-white bg-black text-[22px] p-[13px] pl-[35px] w-full  rounded-[11px]"
               defaultValue="0"
             />
-          </div>
+          </div> */}
           
           <p className="text-[#828282] mt-[6px] text-[12px] mb-[6px]">
             WALLET BALANCE: <span className="text-white">{parseFloat(userOperaBalance/10**9).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} $OPERA</span>
@@ -176,11 +176,14 @@ const Stake = () => {
           <p className="text-[#828282] text-[12px] mb-[16px]">
             CURRENT REWARDS: <span className="text-white">{parseFloat(userEarned/10**9).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} $OPERA</span>
           </p>
-          { userStakedAmount > 0 && <div><button onClick={()=>{unstakeV1()}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] mb-[2px]">
+          {/* { userStakedAmount > 0 && <div>
+            <button onClick={()=>{unstakeV1()}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] mb-[2px]">
             Withdraw V1 Staked
-          </button><p className="text-[#828282] mt-[6px] text-[12px] mb-[20px]">
+          </button>
+          <p className="text-[#828282] mt-[6px] text-[12px] mb-[20px]">
             V1 STAKED AMOUNT: <span className="text-white">{parseFloat(userStakedAmount/10**9).toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} $OPERA</span>
-          </p></div> }
+          </p>
+          </div> } */}
 
 
 
@@ -195,28 +198,28 @@ const Stake = () => {
               <img src={arrow} className="w-[8px] h-2" alt="" /> 3.65 ETH
             </span>
           </p> */}
-          <button onClick={()=>{stakeOpera(parseInt(operaToStake)*10**9)}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] mb-[13px]">
+          {/* <button onClick={()=>{stakeOpera(parseInt(operaToStake)*10**9)}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] mb-[13px]">
             STAKE
-          </button>
-          <button onClick={()=>{unstakeOpera(parseInt(operaToStake)*10**9)}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] ml-[15px] mb-[13px]">
+          </button> */}
+          <button onClick={()=>{unstakeOpera(userStakedAmount)}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] ml-[15px] mb-[13px]">
             WITHDRAW
           </button>
           <button onClick={()=>{getReward()}} className="pl-[47px] pr-[47px] pt-[2px] pb-[3px] border border-white rounded-[13px] ml-[15px] mb-[13px]">
             CLAIM
           </button>
-          <p className="text-[10px]">
+          {/* <p className="text-[10px]">
             YOU MUST STAKE $OPERA + ETH TO JOIN OUR DAO AND LEND.
             <br />
             THE CURRENT MINIMUM IS 1 ETH.
-          </p>
+          </p> */}
         </div>
       </div>
-      <p className="text-[10px] tracking-[0.075em] mt-[27px] mb-[67px]">
+      {/* <p className="text-[10px] tracking-[0.075em] mt-[27px] mb-[67px]">
         <span className="text-[#828282]">NOTE:</span> YIELD FROM NORMAL STAKING
         COMES FROM OPERA TRADING FEES AND TOKEN EMISSIONS.
-      </p>
+      </p> */}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:pr-[50px]">
+      <div className="mt-[24px] grid grid-cols-1 lg:grid-cols-2 gap-10 lg:pr-[50px]">
         <div className="bg-black pt-[25px] pl-[28px] pb-[17px] pr-[14px] rounded-[15px]">
           <p className="text-[#AAAAAA] text-[19px] tracking-[0.075em]">
             TOTAL LENT FUNDS

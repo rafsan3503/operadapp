@@ -203,7 +203,11 @@ const LaunchToken = () => {
               intList[9] = 0
               intList[10] = 0
               let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["supply"],tokenInputs["maxWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
+            try{
               setTokenDeployed(response.events.tokenDeployed.returnValues.token)
+            }catch {
+              setTokenDeployed("")
+            }
 
             } else {
               const factoryContract = new web3.eth.Contract(FactoryABI,addresses["factory"])
@@ -211,7 +215,11 @@ const LaunchToken = () => {
               intList[9] = 1
               intList[10] = 0
               let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["devWallet"],tokenInputs["marketingWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
-              setTokenDeployed(response.events.tokenDeployed.returnValues.token)
+              try{
+                setTokenDeployed(response.events.tokenDeployed.returnValues.token)
+              }catch {
+                setTokenDeployed("")
+              }
             }
 
           } else {
@@ -220,7 +228,12 @@ const LaunchToken = () => {
             intList[9] = 1
             intList[10] = 1
             let response = await factoryContract.methods.deployToken(stringList,[tokenInputs["devWallet"],tokenInputs["marketingWallet"]],intList,borrowedEth).send({value:fee,from:window.web3.currentProvider.selectedAddress})
-            setTokenDeployed(response.events.tokenDeployed.returnValues.token)
+            try{
+              setTokenDeployed(response.events.tokenDeployed.returnValues.token)
+            }catch {
+              setTokenDeployed("")
+            }
+            
           }
 
           setTxPending(false)

@@ -1,0 +1,32 @@
+.doubleDash{
+    display: flex;
+    /* width: 100%; */
+    flex-wrap: wrap;
+    background-color: #000000;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    margin-right: 25px;
+}
+.dashHalf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    min-width: 250px;
+
+}
+.dashHalf2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    min-width: 250px;
+    align-items: center;
+}
+@media screen and (max-width: 480px) {
+    .doubleDash
+    {
+            width: 100%;
+    }
+}
